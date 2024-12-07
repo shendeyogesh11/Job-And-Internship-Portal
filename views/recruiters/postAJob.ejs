@@ -1,0 +1,177 @@
+<% layout('rBoilerplate.ejs') -%>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+          Job And Internship
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/jobPosting">Post a Job</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/postedJobs">Posted Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/recruiterProfile">My Profile</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Post A Job</h2>
+
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" class="mt-4"><%= profile.name %>
+    </h5>
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" ><%= profile.email %>
+    </h5>
+
+    <div class="row">
+      <div class="col-8 offset-2 mt-4">
+        <form action="/jobAndIntern/<%= _id %>/jobPosting" method="post" class="needs-validation"
+          novalidate>
+
+            <div class="mb-3">
+              <label for="jobTitle" class="form-lable">Job Title: </label>
+              <input type="text" name="jobTitle" id="jobTitle" class="form-control" required />
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="location" class="form-lable">Location: </label>
+              <input type="text" name="location" id="location" class="form-control" required />
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Location Type:</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="locationType" id="on-site" class="form-check-input" value="on-site" required />
+                  <label for="on-site" class="form-check-label">On-Site</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="locationType" id="hybrid" class="form-check-input" value="hybrid" required />
+                  <label for="hybrid" class="form-check-label">Hybrid</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="locationType" id="remote" class="form-check-input" value="remote" required />
+                  <label for="remote" class="form-check-label">Remote</label>
+                </div>
+                
+                <div class="invalid-feedback">Please choose a location Type</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Job Type:</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobType" id="full-time" class="form-check-input" value="full-time" required />
+                  <label for="full-time" class="form-check-label">Full-Time</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobType" id="part-time" class="form-check-input" value="part-time" required />
+                  <label for="part-time" class="form-check-label">Part-Time</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobType" id="contract" class="form-check-input" value="contract" required />
+                  <label for="contract" class="form-check-label">Contract</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobType" id="internship" class="form-check-input" value="internship" required />
+                  <label for="internship" class="form-check-label">Internship</label>
+                </div>
+                <div class="invalid-feedback">Please choose a job Type</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="jobDescription" class="form-lable">Job Description: </label>
+              <textarea name="jobDescription" id="jobDescription" class="form-control"  rows="10" required></textarea>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="responsibilities" class="form-lable">Job Responsibilities: </label>
+              <textarea name="responsibilities" id="responsibilities" class="form-control"  rows="10" required></textarea>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="desiredSkills" class="form-lable">Desired Skills: </label>
+              <textarea name="desiredSkills" id="desiredSkills" class="form-control"  rows="10" required></textarea>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="qualification" class="form-lable">Qualification: </label>
+              <textarea name="qualification" id="qualification" class="form-control"  rows="10" required></textarea>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="row">
+              <label  class="form-lable">Salary Range (Per annum): </label>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="from" class="form-lable">From: </label>
+                  <input type="number" name="from" id="from" class="form-control"  required />
+                  <div class="invalid-feedback">
+                    Please Enter this feild!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="to" class="form-lable">To: </label>
+                  <input type="number" name="to" id="to" class="form-control"  required />
+                  <div class="invalid-feedback">
+                    Please Enter this feild!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+    
+            
+
+            
+
+            
+
+
+
+
+            <button class="btn btn-dark mb-3">Post</button>
+        </form>
+      </div>
+    </div>
+
+
+    
+  </body>
+

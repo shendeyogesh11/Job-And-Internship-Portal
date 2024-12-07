@@ -1,0 +1,93 @@
+<% layout('cBoilerplate.ejs') -%>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+          Job And Internship
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/jobs">Jobs</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/appliedJobs">Applied Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/profile">My Profile</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Certificates</h2>
+
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" class="mt-4"><%= profile.name %>
+    </h5>
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" ><%= profile.email %>
+    </h5>
+
+    <div class="row">
+        <div class="col-8 offset-2 mt-4">
+          <form action="/jobAndIntern/<%= profile._id %>/certificates" method="post" class="needs-validation"
+            novalidate>
+
+            <div class="mb-3">
+                <label for="nameOfCertification" class="form-lable">Name Of Certification: </label>
+                <input type="text" name="nameOfCertification" id="nameOfCertification" class="form-control" required />
+                <div class="invalid-feedback">
+                  Please Enter this feild!
+                </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="issuedBy" class="form-lable">Issued By: </label>
+              <input type="text" name="issuedBy" id="issuedBy" class="form-control" required />
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="issueDate" class="form-lable">Issue Date: </label>
+                <input type="date" name="issueDate" id="issueDate" class="form-control" required />
+                <div class="invalid-feedback">
+                  Please Enter this feild!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="linkOfCertificate" class="form-lable">Link Of Certificate </label>
+                <textarea name="linkOfCertificate" id="linkOfCertificate" placeholder="Enter the drive link of Certificate" class="form-control" required></textarea>
+                <div class="invalid-feedback">
+                  Please Enter this feild!
+                </div>
+            </div>
+
+            
+
+            
+            
+  
+      
+  
+  
+  
+  
+              <button class="btn btn-dark mb-3">Add</button>
+          </form>
+        </div>
+      </div>
+  
+
+    
+  </body>
+

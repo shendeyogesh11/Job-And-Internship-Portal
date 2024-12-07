@@ -1,0 +1,100 @@
+
+
+
+.navbar {
+    padding-top: 1rem; 
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+}
+
+.navbar-brand{
+    font-size: 2rem;
+}
+
+.nav-item{
+    margin-right: 0.5rem;
+}
+
+
+  
+.home-img{
+    padding: 2rem;
+}
+
+.home-img h1{
+    color: #404040;
+    font-weight: bolder;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+.candidateError{
+    flex: 1;
+}
+
+.profile-info{
+    color: #5c5c5c;
+    font-weight: 600;
+}
+
+.education{
+    border: 1px dotted black;
+}
+
+.education-info{
+    color: #5c5c5c;
+    font-weight: 600;
+    margin: 0;
+}
+
+.edu-info-p{
+    margin: 0;
+}
+
+.edu-block{
+    border-bottom: 1px solid black;
+}
+
+.card{
+    background-color: rgb(215, 214, 214);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.cardIndi{
+    background-color: rgb(215, 214, 214);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+
+
+.jobsAnchor{
+    text-decoration: none;
+}
+
+.cardRe{
+    background-color: rgb(215, 214, 214);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 5px gray;
+}
+
+
+  
+
+
+

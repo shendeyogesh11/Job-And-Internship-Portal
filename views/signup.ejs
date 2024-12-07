@@ -1,0 +1,80 @@
+<% layout('homeBoilerplate.ejs') -%>
+
+<body>
+    <!-- <h2 style="color: red;">Sign UP</h2>
+    <br><br><br>
+    
+    <form action="/jobAndIntern/signup" method="post">
+        <input type="text" name="name" placeholder="your/company name" required>
+        <br><br>
+        <input type="email" name="email" placeholder="your/company email" required>
+        <br><br>
+        <select name="userType">
+            <option value="job-seeker">I'm looking for Job/Internship</option>
+            <option value="recruiter">I'm looking for Candidates</option>
+        </select>
+        <br><br>
+        <input type="password" name="password" placeholder="password" required>
+        <br><br>
+        <h3 style="color: red;"><%= msg %></h3>
+        <br><br>
+        <button>Sign up</button>
+    </form> -->
+
+
+
+    <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Sign Up</h2>
+
+  <div class="row">
+    <div class="col-8 offset-2 mt-4">
+      <form action="/jobAndIntern/signup" method="post" class="needs-validation" novalidate>
+
+        <div class="mb-3">
+            <label for="name" class="form-lable">Enter Your Name (or) Company Name: </label>
+            <input type="text" name="name" id="name" class="form-control" required/>
+            <div class="invalid-feedback">
+              Please Enter Your Name (or) Company Name!
+            </div>
+          </div>
+
+
+        <div class="mb-3">
+          <label for="email" class="form-lable">Enter Your Email: </label>
+          <input type="email" name="email" id="email" class="form-control" required/>
+          <div class="invalid-feedback">
+            Please Enter Your Email!
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="userType" class="form-lable">What Are You Looking For: </label>
+            <select name="userType" id="userType" class="form-control">
+                <option value="job-seeker">I'm looking for Job/Internship</option>
+                <option value="recruiter">I'm looking for Candidates</option>
+            </select>
+          </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-lable">Enter Your Password: </label>
+            <input type="password" name="password" id="password" class="form-control" required/>
+            <div class="invalid-feedback">
+              Please Enter Your Password !
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <p style="color: red; font-style: italic; font-weight: 700;">
+                <%= msg %>
+            </p>
+          </div>
+
+        
+
+        
+
+        <button class="btn btn-dark mb-3">LogIn</button>
+      </form>
+    </div>
+  </div>
+
+</body>

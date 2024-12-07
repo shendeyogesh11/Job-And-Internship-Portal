@@ -1,0 +1,214 @@
+<% layout('cBoilerplate.ejs') -%>
+
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= _id %>/dashboard">
+          Job And Internship
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=_id %>/jobs">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=_id %>/appliedJobs">Applied Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= _id %>/profile">My Profile</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Create Profile</h2>
+
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" class="mt-4"><%= name %>
+    </h5>
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" ><%= email %>
+    </h5>
+
+    
+
+    <div class="row">
+      <div class="col-8 offset-2 mt-4">
+        <form action="/jobAndIntern/<%= _id %>/profileCreate" method="post" class="needs-validation" novalidate>
+
+          <div class="mb-3">
+            <label for="mobile" class="form-lable">What is Your Mobile Number? </label>
+            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="4561973275" required />
+            <div class="invalid-feedback">
+              Please Enter this feild!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="dob" class="form-lable">What is Your Date Of Birth? </label>
+            <input type="date" name="dob" id="dob" class="form-control" required />
+            <div class="invalid-feedback">
+              Please Enter this feild!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">What is Your Gender?</label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input type="radio" name="gender" id="genderMale" class="form-check-input" value="male" required />
+                <label for="genderMale" class="form-check-label">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" name="gender" id="genderFemale" class="form-check-input" value="female" required />
+                <label for="genderFemale" class="form-check-label">Female</label>
+              </div>
+              <div class="invalid-feedback">Please select your gender.</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="currentLocation" class="form-lable">Where are You From? </label>
+            <input type="text" name="currentLocation" id="currentLocation" class="form-control"
+              placeholder="city, state" required />
+            <div class="invalid-feedback">
+              Please Enter this feild!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-lable">Are You Willing to Relocate? </label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input type="radio" name="relocate" id="relocateYes" class="form-check-input" value="yes" required />
+                <label for="relocateYes" class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" name="relocate" id="relocateNo" class="form-check-input" value="no" required />
+                <label for="relocateNo" class="form-check-label">No</label>
+              </div>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">What is Your Job Preference?</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobPreference" id="jobPreferenceRemote" class="form-check-input"
+                    value="remote" required />
+                  <label for="jobPreferenceRemote" class="form-check-label">Remote</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobPreference" id="jobPreferenceInternship" class="form-check-input"
+                    value="internship" required />
+                  <label for="jobPreferenceInternship" class="form-check-label">Internship</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" name="jobPreference" id="jobPreferenceFullTime" class="form-check-input"
+                    value="full-time" required />
+                  <label for="jobPreferenceFullTime" class="form-check-label">Full-time</label>
+                </div>
+                <div class="invalid-feedback">Please select your job preference.</div>
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="resume" class="form-lable">Enter the Drive Link of Your Resume: </label>
+              <textarea name="resume" id="resume" class="form-control" required></textarea>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="linkdin" class="form-lable">Enter the Link of Your LinkDin Profile: </label>
+              <textarea name="linkdin" id="linkdin" class="form-control" required></textarea>
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+
+
+
+            <button class="btn btn-dark mb-3">Add</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <!-- <div class="container">
+        <h2 style="color: red;">Profile</h2>
+
+        <h3>Name: <%= name %></h3>
+        <h3>Email: <%= email %></h3>
+        <br><br>
+
+    <form action="/jobAndIntern/<%= _id %>/profileCreate" method="post">
+        
+
+        <label for="mobile">what is your mobile number?  </label>
+        <input type="text"  name="mobile" id="mobile" placeholder="1234567894" required>
+        <br><br>
+
+        <label for="dob">what is your date of birth?  </label>
+        <input type="date" name="dob" id="dob"  required>
+        <br><br>
+
+        <label for="gender">What is your gender?  </label>
+        <input type="radio" name="gender" id="gender" value="male">Male
+        <input type="radio" name="gender" id="gender" value="female">Female
+        <br><br>
+
+        <label for="currentLocation">Where are you from?  </label>
+        <input type="text" name="currentLocation" id="currentLocation" placeholder="city" required>
+        <br><br>
+
+        <label for="relocate">Are you willing to relocate?  </label>
+        <input type="radio" name="relocate" id="relocate" value="yes">Yes
+        <input type="radio" name="relocate" id="relocate" value="no">No
+        <br><br>
+
+        <label for="jobPreference"> What is your job-preference?</label>
+        <input type="radio" name="jobPreference" id="jobPreference" value="remote">remote
+        <input type="radio" name="jobPreference" id="jobPreference" value="internship">internship
+        <input type="radio" name="jobPreference" id="jobPreference" value="full-time">full-time
+        <br><br>
+
+        <label for="resume">Enter Google Drive link of your resume: </label>
+         <textarea name="resume" id="resume" cols="50" rows="5" required></textarea>
+         <br><br>
+
+         <label for="linkdin">Linkdin Profile: </label>
+         <textarea name="linkdin" id="linkdin" cols="50" rows="5" required></textarea>
+         <br><br>
+
+         <hr>
+
+
+
+        <button>Create</button>
+
+
+
+
+
+
+
+    </form>
+      </div> -->
+
+
+
+  </body>

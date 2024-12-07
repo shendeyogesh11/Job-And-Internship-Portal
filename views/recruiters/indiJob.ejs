@@ -1,0 +1,103 @@
+<% layout('rBoilerplate.ejs') -%>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+            Job And Internship
+          </a>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/jobPosting">Post a Job</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/postedJobs">Posted Jobs</a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/recruiterProfile">My Profile</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4"><%= thisjob.jobTitle %></h2>
+
+      <div class="container">
+        <div class="row m-4 cardIndi">
+            <div class="col-12">
+                <h5 style="color: #404040; font-weight: 700; display: inline-block;"><%= thisjob.jobTitle %> &nbsp;</h5>  
+                <p style="display: inline-block;"> <span><%= thisjob.location %></span> (<span><%= thisjob.locationType %></span>) &nbsp; <span><%= thisjob.jobType %></span></p> 
+            </div>
+
+            <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Description:</span> &nbsp; <%= thisjob.jobDescription %></p>
+
+            <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Description:</span> &nbsp; <%= thisjob.responsibilities %></p>
+
+            <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Description:</span> &nbsp; <%= thisjob.desiredSkills %></p>
+
+            <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Description:</span> &nbsp; <%= thisjob.qualification %></p>
+
+            <p> <span style="color: #404040; font-weight: 700;">Salary:</span> &nbsp; <%= thisjob.from.toLocaleString() %>&#8377; to <%= thisjob.to.toLocaleString() %>&#8377;</p>
+
+            <div class="row">
+              <div class="col-11">
+                <form action="/jobAndIntern/<%= profile._id %>/updateJob/<%= thisjob._id %>" method="get">
+                  <button class="btn btn-dark m-3">Update</button>
+                </form>
+              </div>
+
+              <div class="col-1">
+                <form action="/jobAndIntern/<%= profile._id %>/updateJob/<%= thisjob._id %>?_method=DELETE" method="post">
+                  <button class="btn btn-danger m-3">Delete</button>
+                </form>
+              </div>
+  
+              
+            </div>
+        </div>
+        
+      </div>
+
+
+      <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-5">Applied Candidates</h2>
+
+      <div class="container">
+        <div class="row m-4">
+          <table class="table m-4">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col">#</th>
+                <th scope="col">Candidate Name</th>
+                <th scope="col">Candidate Email</th>
+                <th scope="col">Candidate Profile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i of thisjob.appliedCandidates) { %>
+                <tr>
+                  <th scope="row"><%= counter++ %></th>
+                  <td><%= i.name %></td>
+                  <td><%= i.email %></td>
+                  <td>
+                    <form action="/jobAndIntern/<%= _id %>/candidateProfile/<%= i._id %>" method="get">
+                      <button class="btn btn-dark">Details</button>
+                    </form>
+                  </td>
+                </tr>
+                <% } %>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+</body>

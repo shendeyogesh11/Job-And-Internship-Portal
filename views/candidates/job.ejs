@@ -1,0 +1,93 @@
+<% layout('cBoilerplate.ejs') -%>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/jobAndIntern/<%= _id %>/dashboard">
+            Job And Internship
+          </a>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=_id %>/jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=_id %>/appliedJobs">Applied Jobs</a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=_id %>/profile">My Profile</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4"><%= recruiter.profile.name %></h2>
+
+      <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-6">
+                <h3 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">About Company</h3>
+                <div class="row">
+                  <h5 class="profile-info p-2">Overview:</h5>
+                  <p class=" text-wrap" style="overflow-wrap: break-word;"> <%= recruiter.overview %></p>
+        
+                  <h5 class="profile-info p-2" >Website: </h5>
+                  <p> <a href="<%= recruiter.website %>" target="_blank">website</a></p>
+        
+                  <h5 class="profile-info p-2">Industry:</h5>
+                  <p> <%= recruiter.industry %></p>
+        
+                  <h5 class="profile-info p-2">Company Size:</h5>
+                  <p> <%= recruiter.companySize %></p>
+        
+                  <h5 class="profile-info p-2">Headquarters:</h5>
+                  <p> <%= recruiter.headquarters %></p>
+        
+                  <h5 class="profile-info p-2">Specialties:</h5>
+                  <p class=" text-wrap" style="overflow-wrap: break-word;"> <%= recruiter.specialties %></p>
+                  
+        
+              </div>
+              </div>
+        
+              <div class="col-6">
+                <h3 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Apply For The Job</h3>
+                <div class="row m-4 cardIndi">
+
+                    <div class="col-12">
+                        <h5 style="color: #404040; font-weight: 700; display: inline-block;"><%= recruiter.thisjob.jobTitle %> &nbsp;</h5>  
+                        <p style="display: inline-block;"> <span><%= recruiter.thisjob.location %></span> (<span><%= recruiter.thisjob.locationType %></span>) &nbsp; <span><%= recruiter.thisjob.jobType %></span></p> 
+                    </div>
+
+                    <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Description:</span> &nbsp; <%= recruiter.thisjob.jobDescription %></p>
+
+                    <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Responsibilities:</span> &nbsp; <%= recruiter.thisjob.responsibilities %></p>
+
+                    <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Desired Skills:</span> &nbsp; <%= recruiter.thisjob.desiredSkills %></p>
+
+                    <p class=" text-wrap" style="overflow-wrap: break-word;"><span style="color: #404040; font-weight: 700;">Qualification:</span> &nbsp; <%= recruiter.thisjob.qualification %></p>
+        
+                    <p> <span style="color: #404040; font-weight: 700;">Salary:</span> &nbsp; <%= recruiter.thisjob.from.toLocaleString() %>&#8377; to <%= recruiter.thisjob.to.toLocaleString() %>&#8377;</p>
+
+                    <% if(alreadyApplied == "true"){ %>
+                      <p style="color: red; font-style: italic; font-weight: 700;"> Already Applied!</p>
+                      <% }else{ %>
+                        <div class="row">
+                          <form action="/jobAndIntern/<%= _id %>/applyjob/<%= recruiter.thisjob._id %>" method="get">
+                            <button class="btn btn-primary m-3">Apply</button>
+                          </form>
+                        </div>
+                        <% } %>
+                </div>
+              </div>
+        </div>
+      </div>
+
+</body>

@@ -1,0 +1,123 @@
+<% layout('rBoilerplate.ejs') -%>
+  <body>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+          Job And Internship
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/jobPosting">Post a Job</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/postedJobs">Posted Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/recruiterProfile">My Profile</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Company Profile</h2>
+
+      <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" class="mt-4"><%= profile.name %>
+      </h5>
+      <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" ><%= profile.email %>
+      </h5>
+      <hr/>
+
+        <div class="container">
+          <div class="row">
+            <h5 class="profile-info p-2">Overview:</h5>
+            <p class=" text-wrap" style="overflow-wrap: break-word;"> <%= overview %></p>
+
+            <h5 class="profile-info p-2" >Website: </h5>
+            <p> <a href="<%= website %>" target="_blank">website</a></p>
+
+            <h5 class="profile-info p-2">Industry:</h5>
+            <p> <%= industry %></p>
+
+            <h5 class="profile-info p-2">Company Size:</h5>
+            <p> <%= companySize %></p>
+
+            <h5 class="profile-info p-2">Headquarters:</h5>
+            <p> <%= headquarters %></p>
+
+            <h5 class="profile-info p-2">Specialties:</h5>
+            <p class=" text-wrap" style="overflow-wrap: break-word;"> <%= specialties %></p>
+            
+
+        </div>
+        </div>
+
+        
+        
+        <div class="row m-4">
+          <div class="col-11">
+            <form action="/jobAndIntern/home" method="get">
+              <button class="btn btn-dark">Log Out</button>
+            </form>
+          </div>
+
+          <div class="col">
+            <form action="/jobAndIntern/<%= profile._id %>/recruiterProfileUpdate" method="get">
+              <button class="btn btn-dark">Update</button>
+            </form>
+          </div>
+        </div>
+        
+        
+
+
+        
+
+
+
+    
+    <!-- </div>
+
+
+      <div class="container">
+        <h2 style="color: red">Profile</h2>
+
+        <h3>Name: <%= profile.name %></h3>
+        <h3>Email: <%= profile.email %></h3>
+        <hr /> 
+
+        <p>overview: <%= overview %></p>
+        <p>Website: <a href="<%= website %>">website</a></p>
+        <p>Industry: <%= industry %></p>
+        <p>Company Size: <%= companySize %></p>
+        <p>Headquarters <%= headquarters %></p>
+        <p>Specialties: <%= specialties %></p>
+        
+        <br /><br /> 
+
+        <form action="/jobAndIntern/home" method="get">
+          <button>Log Out</button>
+        </form>
+
+
+
+    <form action="/jobAndIntern/<%= profile._id %>/recruiterProfileUpdate" method="get">
+      <button>Update Profile</button>
+    </form>
+      </div> -->
+
+
+
+      
+  </body>
+

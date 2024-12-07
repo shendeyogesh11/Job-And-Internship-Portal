@@ -1,0 +1,45 @@
+<% layout('rBoilerplate.ejs') -%>
+<body>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/jobAndIntern/<%= _id %>/dashboard">
+        Job And Internship
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= _id %>/jobPosting">Post a Job</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= _id %>/postedJobs">Posted Jobs</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= _id %>/recruiterProfile">My Profile</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    
+
+
+      
+
+
+
+
+
+
+
+    <img src="https://vskills.in/certification/blog/wp-content/uploads/2014/12/internship-a-first-hand-experience-of-job.jpg" alt="image">
+
+   
+</body>

@@ -1,0 +1,92 @@
+<% layout('rBoilerplate.ejs') -%>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+          Job And Internship
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/jobPosting">Post a Job</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/postedJobs">Posted Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%= profile._id %>/recruiterProfile">My Profile</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Jobs</h2>
+
+    <div class="container">
+      <% for(let i of jobposting) { %>
+        <a href="/jobAndIntern/<%= profile._id %>/postedJobs/<%= i._id %>" class="jobsAnchor">
+          <div class="row m-3 card">
+            <!-- <h3 style="color: #404040; font-weight: 700; text-decoration: underline;"><%= profile.name %></h3> -->
+              <div class="row">
+                <div class="col-9">
+                  <h5 style="color: #404040; font-weight: 700; display: inline-block;"><%= i.jobTitle %> &nbsp;</h5>  
+                  <p style="display: inline-block;"> <span><%= i.location %></span> (<span><%= i.locationType %></span>) &nbsp; <span><%= i.jobType %></span></p> 
+                </div>
+                <div class="col-3">
+                  <p> <span style="color: #404040; font-weight: 700;">Salary:</span> &nbsp; <%= i.from.toLocaleString() %>&#8377; to <%= i.to.toLocaleString() %>&#8377;</p>
+                </div>
+              </div>
+              
+              
+  
+              <!-- <p><span style="color: #404040; font-weight: 700;">Description:</span> &nbsp; <%= i.jobDescription %></p> -->
+              
+          </div>
+
+        </a>
+        <% } %>
+    </div>
+
+
+
+
+  
+    <!-- <% for(let i of jobposting){ %>
+        <ul>
+            <li><%= i._id %></li>
+            <li><%= i.jobTitle %></li>
+            <li><%= i.location %></li>
+            <li><%= i.locationType %></li>
+            <li><%= i.jobType %></li>
+            <li><%= i.jobDescription %></li>
+            <li><%= i.responsibilities %></li>
+            <li><%= i.desiredSkills %></li>
+            <li><%= i.qualification %></li>
+            <li><%= i.from %> to <%= i.to %></li>
+        </ul>
+
+        <hr>
+
+        <% } %> -->
+      
+  
+  
+        
+  
+  
+  
+  
+  
+  
+  
+      
+     
+  </body>

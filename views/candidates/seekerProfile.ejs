@@ -1,0 +1,300 @@
+<% layout('cBoilerplate.ejs') -%>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+          Job And Internship
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/jobs">Jobs</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/appliedJobs">Applied Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/profile">My Profile</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">My Profile</h2>
+
+      <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" class="mt-4"><%= profile.name %>
+      </h5>
+      <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" ><%= profile.email %>
+      </h5>
+      <hr/>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="profile-info">Mobile:</h5>
+              <p><%= mobile %></p>
+
+              <h5 class="profile-info">Date of birth:</h5>
+              <p> <%= dob %></p>
+
+              <h5 class="profile-info">Gender:</h5>
+              <p> <%= gender %></p>
+
+              <h5 class="profile-info" >Resume: </h5>
+              <p > <a href="<%= resume %>" target="_blank">resume</a></p>
+            </div>
+  
+            <div class="col-md-6">
+              <h5 class="profile-info">Current Location:</h5>
+              <p> <%= currentLocation %></p>
+
+              <h5 class="profile-info">Are you willing to relocate?  </h5>
+              <p> <%= relocate %></p>
+
+              <h5 class="profile-info">What are your job-preference?  </h5>
+              <p> <%= jobPreference %></p>
+
+              <h5 class="profile-info" >Linkdin: </h5>
+              <P> <a href="<%= linkdin %>" target="_blank">Linkdin</a></P>
+            </div>
+          </div>
+        </div>
+
+        <div class="container education mt-4">
+          <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" > Education
+          </h5>
+          <% if(education.length===0){ %>
+            <p style="color: red; font-style: italic; font-weight: 700; text-align: center;"> Please, Add Your Education! </p>
+            <% }else{ %>
+              <% for(let i of education) {%>
+                <div class="container p-3">
+                  <div class="row m-4">
+                    <div class="row m-2">
+                      <h5 class="education-info">Institution:</h5>
+                      <p class="edu-info-p"> <%= i.institution %></p>
+                    </div>
+                    
+                    <div class="row m-2">
+                      <div class="col-md-6">
+                        <h5 class="education-info">Degree:</h5>
+                        <p class="edu-info-p"> <%= i.degree %></p>
+                      </div>
+                      <div class="col-md-6">
+                        <h5 class="education-info">Field Of Study:</h5>
+                        <p class="edu-info-p"> <%= i.fieldOfStudy %></p>
+                      </div>
+                    </div>
+  
+                    <div class="row m-2">
+                      <div class="col-md-6">
+                        <h5 class="education-info">Starting Year:</h5>
+                        <p class="edu-info-p"> <%= i.startingYear %></p>
+                      </div>
+                      <div class="col-md-6">
+                        <h5 class="education-info">Ending Year:</h5>
+                        <p class="edu-info-p"> <%= i.endingYear %></p>
+                      </div>
+                    </div>
+  
+                    <div class="row m-2">
+                      <h5 class="education-info">GPA:</h5>
+                      <p class="edu-info-p"> <%= i.gpa %></p>
+                    </div>
+
+
+                    <div class="row m-3">
+                      <div class="col-md-10">
+                        <form action="/jobAndIntern/<%= profile._id %>/education/<%= i._id %>" method="get">
+                          <button class="btn btn-dark m-3">Edit</button>
+                        </form>
+                      </div>
+                      <div class="col-md-2">
+                        <form action="/jobAndIntern/<%= profile._id %>/education/<%= i._id %>?_method=DELETE" method="post">
+                          <button class="btn btn-danger m-3">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+
+                    
+
+                    
+
+                    
+                    
+                    
+                  </div>
+                </div>
+                  
+                <% } %>
+              <% } %>
+          <form action="/jobAndIntern/<%=profile._id %>/education" method="get">
+            <button class="btn btn-dark m-3">Add</button>
+          </form>
+        </div>
+
+        <div class="container education mt-5">
+          <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" > Work Experience
+          </h5>
+          <% if(workExperience.length===0){ %>
+            <p style="color: red; font-style: italic; font-weight: 700; text-align: center;"> Please, Add Your Work Experience! </p>
+            <% }else{ %>
+               <% for(let i of workExperience) {%>
+                <div class="container p-3">
+                  <div class="row m-4">
+                    <div class="row m-2">
+                      <h5 class="education-info">Job Title:</h5>
+                      <p class="edu-info-p"> <%= i.jobTitle %></p>
+                    </div>
+                    
+                    <div class="row m-2">
+                      <div class="col-md-6">
+                        <h5 class="education-info">Company Name:</h5>
+                        <p class="edu-info-p"> <%= i.companyName %></p>
+                      </div>
+                      <div class="col-md-6">
+                        <h5 class="education-info">Location:</h5>
+                        <p class="edu-info-p"> <%= i.location %></p>
+                      </div>
+                    </div>
+  
+                    <div class="row m-2">
+                      <div class="col-md-6">
+                        <h5 class="education-info">Starting Year:</h5>
+                        <p class="edu-info-p"> <%= i.startingYear %></p>
+                      </div>
+                      <div class="col-md-6">
+                        <h5 class="education-info">Ending Year:</h5>
+                        <p class="edu-info-p"> <%= i.endingYear %></p>
+                      </div>
+                    </div>
+  
+                    <div class="row m-2">
+                      <h5 class="education-info">Description:</h5>
+                      <p class="edu-info-p text-wrap" style="overflow-wrap: break-word;"  > <%= i.description %></p>
+                    </div>
+
+                    <!-- <form action="/jobAndIntern/<%= profile._id %>/workExperience/<%= i._id %>?_method=DELETE" method="post">
+                      <button class="btn btn-dark m-3">Delete</button>
+                    </form> -->
+
+                    <div class="row m-3">
+                      <div class="col-md-10">
+                        <form action="/jobAndIntern/<%= profile._id %>/workExperience/<%= i._id %>" method="get">
+                          <button class="btn btn-dark m-3">Edit</button>
+                        </form>
+                      </div>
+                      <div class="col-md-2">
+                        <form action="/jobAndIntern/<%= profile._id %>/workExperience/<%= i._id %>?_method=DELETE" method="post">
+                          <button class="btn btn-danger m-3">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+                  
+                <% } %> 
+              <% } %>
+          <form action="/jobAndIntern/<%=profile._id %>/workExperience" method="get">
+            <button class="btn btn-dark m-3">Add</button>
+          </form>
+        </div>
+
+
+        <div class="container education mt-5">
+          <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" > Certificates
+          </h5>
+          <% if(certificates.length===0){ %>
+            <p style="color: red; font-style: italic; font-weight: 700; text-align: center;"> Please, Add Your Certificates! </p>
+            <% }else{ %>
+               <% for(let i of certificates) {%>
+                <div class="container p-3">
+                  <div class="row m-4">
+                    <div class="row m-2">
+                      <h5 class="education-info">Name Of Certification:</h5>
+                      <p class="edu-info-p"> <%= i.nameOfCertification %></p>
+                    </div>
+
+                    <div class="row m-2">
+                      <h5 class="education-info">Issued By:</h5>
+                      <p class="edu-info-p"> <%= i.issuedBy %></p>
+                    </div>
+                    
+                    <div class="row m-2">
+                      <div class="col-md-6">
+                        <h5 class="education-info">Issue Date:</h5>
+                        <p class="edu-info-p"> <%= i.issueDate %></p>
+                      </div>
+                      <div class="col-md-6">
+                        <h5 class="education-info">Link Of Certificate:</h5>
+                        <p class="edu-info-p"> <a href="<%= i.linkOfCertificate %>"> certificate</a></p>
+                      </div>
+                    </div>
+
+                    <!-- <form action="/jobAndIntern/<%= profile._id %>/certificates/<%= i._id %>?_method=DELETE" method="post">
+                      <button class="btn btn-dark m-3">Delete</button>
+                    </form> -->
+
+                    <div class="row m-3">
+                      <div class="col-md-10">
+                        <form action="/jobAndIntern/<%= profile._id %>/certificates/<%= i._id %>" method="get">
+                          <button class="btn btn-dark m-3">Edit</button>
+                        </form>
+                      </div>
+                      <div class="col-md-2">
+                        <form action="/jobAndIntern/<%= profile._id %>/certificates/<%= i._id %>?_method=DELETE" method="post">
+                          <button class="btn btn-danger m-3">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+                  
+                <% } %> 
+              <% } %>
+          <form action="/jobAndIntern/<%=profile._id %>/certificates" method="get">
+            <button class="btn btn-dark m-3">Add</button>
+          </form>
+        </div>
+
+        
+        
+        <div class="row m-3">
+          <div class="col-11">
+            <form action="/jobAndIntern/home" method="get">
+              <button class="btn btn-dark">Log Out</button>
+            </form>
+          </div>
+
+          <div class="col">
+            <form action="/jobAndIntern/<%= profile._id %>/profileUpdate" method="get">
+              <button class="btn btn-dark">Update</button>
+            </form>
+          </div>
+        </div>
+        
+        
+
+
+        
+
+
+
+    
+    </div>
+
+    
+  </body>
+

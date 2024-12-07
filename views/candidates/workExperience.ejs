@@ -1,0 +1,110 @@
+<% layout('cBoilerplate.ejs') -%>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/jobAndIntern/<%= profile._id %>/dashboard">
+          Job And Internship
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/jobs">Jobs</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/appliedJobs">Applied Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/jobAndIntern/<%=profile._id %>/profile">My Profile</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h2 style="color: #404040; font-weight: 700; text-align: center;" class="mt-4">Work Experience</h2>
+
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" class="mt-4"><%= profile.name %>
+    </h5>
+    <h5 style="color: #5c5c5c; font-weight: 700; text-align: center;" ><%= profile.email %>
+    </h5>
+
+    <div class="row">
+        <div class="col-8 offset-2 mt-4">
+          <form action="/jobAndIntern/<%= profile._id %>/workExperience" method="post" class="needs-validation"
+            novalidate>
+
+            <div class="mb-3">
+                <label for="jobTitle" class="form-lable">Job Title: </label>
+                <input type="text" name="jobTitle" id="jobTitle" class="form-control" required />
+                <div class="invalid-feedback">
+                  Please Enter this feild!
+                </div>
+              </div>
+
+            <div class="mb-3">
+              <label for="companyName" class="form-lable">Company Name: </label>
+              <input type="text" name="companyName" id="companyName" class="form-control" required />
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-lable">description </label>
+                <textarea name="description" id="description" class="form-control" required></textarea>
+                <div class="invalid-feedback">
+                  Please Enter this feild!
+                </div>
+              </div>
+
+            <div class="mb-3">
+              <label for="location" class="form-lable">Location: </label>
+              <input type="text" name="location" id="location" class="form-control" required />
+              <div class="invalid-feedback">
+                Please Enter this feild!
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="startingYear" class="form-lable">Starting Year: </label>
+                  <input type="number" name="startingYear" id="startingYear" class="form-control"  required />
+                  <div class="invalid-feedback">
+                    Please Enter this feild!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="endingYear" class="form-lable">Ending Year: </label>
+                  <input type="number" name="endingYear" id="endingYear" class="form-control"  required />
+                  <div class="invalid-feedback">
+                    Please Enter this feild!
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+      
+  
+  
+  
+  
+              <button class="btn btn-dark mb-3">Add</button>
+          </form>
+        </div>
+      </div>
+  
+
+    
+  </body>
+
