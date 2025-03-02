@@ -20,7 +20,7 @@ This is a web application designed to connect job seekers with recruiters. The p
 ## ScreenShots
 
 - **Home Page**
-![Screenshot of Main Page](creenshots/01.png)
+![Screenshot of Main Page](screenshots/01.png)
 
 
 
