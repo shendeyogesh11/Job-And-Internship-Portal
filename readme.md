@@ -16,6 +16,15 @@ This is a web application designed to connect job seekers with recruiters. The p
   - Manage job listings
   - Communicate with applicants
 
+
+## ScreenShots
+
+- **Home Page**
+![Screenshot of Main Page](creenshots/01.png)
+
+
+
+
 ## Technologies Used
 
 - **Backend**: Node.js, Express
