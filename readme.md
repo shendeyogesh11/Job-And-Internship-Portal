@@ -20,15 +20,19 @@ This is a web application designed to connect job seekers with recruiters. The p
 ## ScreenShots
 
 - **Home Page**
+
 ![Screenshot of Main Page](screenshots/01.png)
 
 - **Recruiter LogIn**
+
 ![Screenshot of Main Page](screenshots/02.png)
 
 - **Recruiter Profile**
+  
 ![Screenshot of Main Page](screenshots/03.png)
 
 - **Recruiter's Posted Jobs**
+  
 ![Screenshot of Main Page](screenshots/04.png)
 
 - **List of Applied Candidates**
@@ -40,6 +44,7 @@ This is a web application designed to connect job seekers with recruiters. The p
 
 
 - **Candidate Login**
+
 ![Screenshot of Main Page](screenshots/07.png)
 
 - **Candidate Profile**
