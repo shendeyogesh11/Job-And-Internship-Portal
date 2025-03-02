@@ -32,8 +32,9 @@ This is a web application designed to connect job seekers with recruiters. The p
 ![Screenshot of Main Page](screenshots/04.png)
 
 - **List of Applied Candidates**
-<video src="screenshots/vid3.mp4" controls>
-</video>
+[Watch the demo video](screenshots/vid3.mp4)
+<!-- <video src="screenshots/vid3.mp4" controls>
+</video> -->
 <!-- ![Screenshot of Main Page](screenshots/05.mp4) -->
 
 - **Post A Job**
