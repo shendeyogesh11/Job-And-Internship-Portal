@@ -2,6 +2,8 @@
 
 This is a web application designed to connect job seekers with recruiters. The platform allows job seekers to browse job opportunities, apply for positions, and manage their profiles. Recruiters can post job listings, view candidate profiles, and communicate with applicants.
 
+***
+
 ## Features
 
 - **Job Seekers** can:
@@ -15,6 +17,8 @@ This is a web application designed to connect job seekers with recruiters. The p
   - View applications and candidate profiles
   - Manage job listings
   - Communicate with applicants
+
+***
 
 
 ## ScreenShots
@@ -39,6 +43,9 @@ This is a web application designed to connect job seekers with recruiters. The p
 - **Candidate Login**
 
 ![Screenshot of Main Page](screenshots/07.png)
+
+
+***
 
 
 ## Technologies Used
